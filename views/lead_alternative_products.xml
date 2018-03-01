@@ -1,0 +1,31 @@
+<?xml version="1.0" encoding="utf-8"?>
+<odoo>
+    <data>
+        <record id="alternative_products_view" model="ir.ui.view">
+            <field name="name">CRM Lead</field>
+            <field name="model">crm.lead</field>
+            <field name="inherit_id" ref="crm.crm_case_form_view_oppor"/>
+            <field name="arch" type="xml">
+                <xpath expr="//notebook" position="after">
+                    <notebook attrs="{'invisible': [('stage_id', '=', 1)]}" name="alt_prods">
+                    <page name="Alternative Products" string="Альтернативні товари" >
+                        <field name="alt_pdt_line" widget="one2many_checkbox">
+                            <tree editable="top" create="false" edit="true">
+                                <field name="sequence" widget="handle"/>
+                                <field name="product_id"/>
+                                <field name="default_code"/>
+                                <field name="product_uom_qty"/>
+                                <field name="price_unit" />
+                                <field name="product_brand"/>
+                                <!-- <field name="product_categ"/> -->
+                                <field name="qty_hand"/>
+                            </tree>
+                        </field>
+                    </page>
+                    </notebook>
+                </xpath>
+            </field>
+        </record>
+
+    </data>
+</odoo>
